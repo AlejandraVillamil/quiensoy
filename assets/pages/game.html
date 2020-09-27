@@ -36,7 +36,11 @@
                 <li class="nav-item">
                   <a class="nav-link" href="../pages/podium.html">Podium</a>
                   </li>
+                  
+                  
             </ul>
+            <h3 ><span id="nombreJug" style="color: whitesmoke;"></span></h3>
+            <h3 ><span id="puntajeUsuario" style="color: whitesmoke;"></span></h3>
         </nav>
     </header>
 
@@ -45,17 +49,40 @@
     <!-------------------------------- Inicio Main  ------------------------------------->
 
 <main class="py-5">
-   
-           
-
-    <div class="row">
-
+ 
+    <img src="../src/images/pic02.jpg" alt="personas#1" width="150" height="150">
+    <div id="adivinaQuien">
+        <div class="mx-auto">
+            <input type="text" placeholder="Adivina Quien ? " class="respuesta text-center " id="respuesta" >
+            <div class="col-4 mx-auto">
+                <p><span id="descripcion" style="color: black;">me gusta programar css </span> </p>
+            </div>
+        </div>
+        <div class="row ">
+            <img class="col-3" src="../src/images/pic01.jpg" alt="personas#1" width="200" height="150">
+            <img class="col-3" src="../src/images/pic01.jpg" alt="personas#1" width="200" height="150">
+            <img class="col-3" src="../src/images/pic01.jpg" alt="personas#1" width="200" height="150">
+            <img class="col-3" src="../src/images/pic01.jpg" alt="personas#1" width="200" height="150">
+            
+        </div>
+        <div class="botonVerify">
+            <button type="submit" class="boton" id="btn_verify">Verificar</button>
+            <style>
+                .botonVerify{
+                    margin-top: 30px;
+                    margin-bottom: 100px;
+                }
+            </style>
+        </div>
+        
       </div>
+
 </main>
     <!-------------------------------- Fin Main  ------------------------------------->
     <!------------------------------ Inicio Footer ----------------------------------->
     <footer class="fixed-bottom  page-footer font-small blue pt-4 myfooter">
            <p class="footer_text">Elaborado por el equipo Maki- Septiembre 2020</p> 
+           
 
     </footer>
     <!------------------------------ Inicio Footer ----------------------------------->   
@@ -65,5 +92,9 @@
    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="../js/gameScript.js"></script>
+    
+    
+    
 </body>
 </html>
