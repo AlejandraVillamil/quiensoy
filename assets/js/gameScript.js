@@ -61,7 +61,7 @@ adivinaQuien.addEventListener('click',(e)=>{
     }
     else if((inputRespuesta=="juliana" || inputRespuesta=="juliana diaz") && descripcion=="se me facilita mucho el css "){
         alert("Respuesta correcta")
-    }
+    } 
 
 
 })
