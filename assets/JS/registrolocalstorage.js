@@ -33,7 +33,7 @@ formularioRegistro.addEventListener('submit',(e)=>{
 
     guardarEnLocalStorage(usuario)
 
-    swal("Felicitaciones!", "Te has registrado correctamente", "success")
+    //swal("Felicitaciones!", "Te has registrado correctamente", "success")
      
     window.location.assign("../pages/game.html")
  
