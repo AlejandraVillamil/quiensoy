@@ -29,17 +29,13 @@ formularioRegistro.addEventListener('submit',(e)=>{
         apellido: inputApellido,
         puntos: puntos,
     }
-    alert("Se registro!")
+   // alert("Se registro!")
 
     guardarEnLocalStorage(usuario)
 
-
-    
-        
-    
-
-
-    window.location.assign("./assets/pages/game.html")
+    swal("Felicitaciones!", "Te has registrado correctamente", "success")
+     
+    window.location.assign("../pages/game.html")
  
     }
 })

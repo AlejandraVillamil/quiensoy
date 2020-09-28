@@ -25,8 +25,9 @@ puntajeUsuario=puntajeIncompleto.slice(0,1)
 console.log(puntajeUsuario)
 puntajeReal=parseInt(puntajeUsuario, 10)
 
+
 const mostrarNombre = document.getElementById('nombreJug').innerText = nombreUsuario + ' ' +apellidoUsuario;
-const mostrarPuntaje = document.getElementById('puntajeUsuario').innerText = puntajeReal;
+const mostrarPuntaje = document.getElementById('puntajeUsuario').innerText = points;
 
 
 
@@ -61,7 +62,7 @@ adivinaQuien.addEventListener('click',(e)=>{
     }
     else if((inputRespuesta=="juliana" || inputRespuesta=="juliana diaz") && descripcion=="se me facilita mucho el css "){
         alert("Respuesta correcta")
-    } 
+    }
 
 
 })
