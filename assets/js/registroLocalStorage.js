@@ -27,11 +27,11 @@ formularioRegistro.addEventListener('submit',(e)=>{
         nombre: inputNombre,
         apellido: inputApellido
     }
-    alert("Se registro!")
+    swal("Felicidades!", "El registro fue exitoso", "success");
 
     guardarEnLocalStorage(usuario)
 
-    window.location.assign("../pages/juego.html")
+    window.location.assign("../pages/game.html")
     
     }
 })
