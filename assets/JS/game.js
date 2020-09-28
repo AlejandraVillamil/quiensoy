@@ -9,7 +9,7 @@ let textPista = {
     carlos: "Le gusta programar,  ama el css y ademas fue asesorado por el pony de los 7 colores.",
     alejandroF: "Soy una persona emprendedora, que adora los retos y no se rinde fácilmente. Matemático de profesión, detallista y autodidacta cada día, no dejo de aprender. Estoy interesado en las nuevas tecnologías y en las aplicaciones matemáticas en las distintas areas del conocimiento humano."
 }
-let random = 0
+let buscarPista = ["alejandra","andres","carlos","alejandroF"]
 let body = document.getElementsByTagName("body")
 let posicion = 0
 
@@ -24,13 +24,14 @@ let posicion = 0
 const saveInStorage = () => {
     const dataString = JSON.stringify(textPista)
         localStorage.setItem('reminingNames', dataString)
-
+// esta funcion guarda los nombres y las pistas que no se han usado 
     
 
 }
 const savePoints = ()=>{
     const pointsString = JSON.stringify(points)
     localStorage.setItem('points', pointsString)
+    //esta funcion guarda los puntos acumulados bajo el item de Local Storage points
 }
 function onloadProcess(){
     if (localStorage.getItem('reminingNames') == null) {
@@ -39,23 +40,30 @@ function onloadProcess(){
         textPista = JSON.parse(localStorage.getItem("reminingNames"))
         points = JSON.parse(localStorage.getItem('points'))
     }
-
+// esta funcion se ejecuta al cargar la pagina para volver a poner los nombres que ya se habian diligenciado y los puntos acumulados
 }
 body.onload = onloadProcess()
 
 let pista = document.getElementById("obtenerPista")
 pista.addEventListener('click', ()=>{
+    //cuando se hace click en una el botón posa se obtiene  la pista en la primera posicion del array textPista
     saveInStorage(textPista)
     console.log("click en pista")
     document.getElementById("pista").classList.remove("d-none")
-    document.getElementById("pista").innerHTML = textPista[0]
+    document.getElementById("pista").innerHTML = textPista[buscarPista[0]]
 })
 
 for ( i = 0 ; i<4; i++){
+    // este ciclo for es solo para verificar el correcto funcionamiento del script y que esté bien conectado al html
     console.log(nombres[i])
 }
+
 function matchRespuesta(){
+    //primero se crea una variable donde se filtran los nombres que corrspondan con el input del campo de respuesta
    let n = nombres.includes(input)
+
+   //Se evalua esta variable con un if. si el valor es verdadero se procede a sumar untos y verificar a qué nombre corresponde para diligenciarlo corectamente
+   //ademas se procede a eliminar ese nombre del array textPista
     if(n === true){
         
         swal("Bien", "Atinaste", "success")
@@ -66,38 +74,40 @@ function matchRespuesta(){
             case "Alejandra Villamil":
                 posicion = 0
                 document.getElementById('answer'+posicion).innerText = input
-                personas.splice(0,1)
-                console.log(personas)
-                delete textPista.alejandra
+                buscarPista.splice(0,1)
+                console.log(buscarPista)
+                
+               delete buscarPista[0]
                 
                 
                 break;
             case "Andres Cardona":
                 posicion = 1
                 document.getElementById('answer' + posicion).innerText = input
-                personas.splice(1, 1)
-                borrarPistasInutiles("andres")
-                console.log(personas)
-                delete textPista.andres
+                buscarPista.splice(1, 1)
+                console.log(buscarPista)
+                
+                delete buscarPista[1]
                 
                 
                 break;
             case "Carlos Alvarez":
                 posicion = 2
                 document.getElementById('answer' + posicion).innerText = input
-                personas.splice(2, 1)
-                borrarPistasInutiles("carlos")
-                console.log(personas)
-                delete textPista.carlos
+                buscarPista.splice(2, 1)
+                console.log(buscarPista)
+               
+                delete buscarPista[2]
+
                 
                 break;
             case "Alejandro Fandiño":
                 posicion = 3
                 document.getElementById('answer' + posicion).innerText = input
-                personas.splice()
-                borrarPistasInutiles("alejandroF")
-                console.log(personas)
-                delete textPista.alejandroF
+                buscarPista.splice()
+                console.log(buscarPista)
+                
+                delete buscarPista[3]
                 
                 break;
         }
@@ -107,6 +117,7 @@ function matchRespuesta(){
         }
         saveInStorage()
         saveInStorageFilledData(filledInfo)
+        mostrarPuntaje = document.getElementById('puntajeUsuario').innerText = points
         
     } else{
         points -=1
@@ -151,6 +162,24 @@ const answersStored = () => {
     }
 }
 answersStored()
+function checkWin(){
+    let aleja = document.getElementById("answer0").innerText
+    let andresC = document.getElementById("answer1").innerText
+    let charly = document.getElementById("answer2").innerText
+    let alejo = document.getElementById("answer3").innerText
+    if (points == 4) {
+        swal("ganaste", "felicitaciones", "success")
+        points = 0 
+        savePoints()
+        respondidos = []
+        saveInStorageFilledData()
+    } else if (aleja != "" && andresC != ""&& charly != "" && alejo != null ){
+        swal("Terminante", "aunque no lograste el máximo puntaje felicitaciones", "success")
+        location.replace("../pages/podium.html")
+    } 
+
+}
+checkWin()
 
 
 
